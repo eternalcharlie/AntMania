@@ -4,13 +4,13 @@ public class LeaderAnt extends Ant {
 
 	}
 //	
-//	public void eat(FoodList foods, AntList ants){
-//		super.eat(foods, ants);
-//		w++;
-//		h++;
-//	}
+	public void eat(FoodList foods, AntList ants){
+		super.eat(foods, ants);
+		w++;
+		h++;
+	}
 	public void drawLeaderAnt(FoodList foods, AntList ants) {
-		Zen.fillRect(super.getX(), super.getY(), 2, 2);
+		Zen.fillRect(super.getX(), super.getY(), w, h);
 //		System.out.println(super.getX()+" , "+super.getY());
 		super.eat(foods, ants);//need fix!!!!
 	}
@@ -18,9 +18,9 @@ public class LeaderAnt extends Ant {
 	
 	public LeaderAnt() {
 		super();
-//		w=2;
-//		h=2;
-		super.setX(10);
-		super.setY(10);
+		w=10;
+		h=10;
+		super.setX(2);
+		super.setY(2);
 	}
 }

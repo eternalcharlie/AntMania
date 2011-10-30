@@ -17,9 +17,13 @@ public class EnemyAnt{
 		}
 	}
 	public void move(){
-		x=(x>Zen.getZenWidth()?x-Zen.getZenWidth():x);
-		y=(y>Zen.getZenHeight()?y-Zen.getZenHeight():y);
-		if(!dead){
+		if(dead){}
+		else{
+		x=(x>Zen.getZenWidth()?x-Zen.getZenWidth()+20:x);
+		x=(x<0)?Zen.getZenWidth():x;
+		y=(y>Zen.getZenHeight()?y-Zen.getZenHeight()-20:y);
+		y=(y<0?Zen.getZenHeight():y);
+		{
 			int direction=(int)(4*Math.random())+1;
 			switch (direction){
 			case 1: x++; break;
@@ -29,16 +33,19 @@ public class EnemyAnt{
 			default: break;
 			}
 		}
+		}
 	}
 	public void Kill(){
 		dead=true;
+		EnemyAntList.deadAnts++;
 	}
 	public void drawAnt(){
+		if(!dead)
 		Zen.fillRect(x, y, 5, 5);
-	}
+		}
 	public EnemyAnt(){
-		x=Zen.getZenWidth()-100;
-		y=0;
+		x=(Zen.getZenWidth())/4;
+		y=(Zen.getZenHeight())/4;
 	}
 	public EnemyAnt copyAnotherAnt(){
 		EnemyAnt copy = new EnemyAnt();
@@ -61,4 +68,5 @@ public class EnemyAnt{
 	public int getY(){
 		return y;
 	}
+
 }

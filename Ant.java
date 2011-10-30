@@ -2,8 +2,24 @@ public class Ant{
 	private int x,y;
 	private boolean dead=false;
 	private boolean lasergun;
-	public void fight(){
-		
+	public void fight(EnemyAntList enemyAnts){
+		for (int i=0; i<enemyAnts.getAnts();i++){
+			if (!enemyAnts.getAnt(i).isDead()&&Math.abs(enemyAnts.getAnt(i).getX()-x)<2&&Math.abs(enemyAnts.getAnt(i).getY()-y)<2){
+				this.Kill();
+				enemyAnts.getAnt(i).Kill();
+//				Zen.setColor(0, 0, 0);
+//				Zen.fillRect(0, 0, Zen.getZenWidth(), Zen.getZenHeight());
+//				Zen.setColor(255, 0, 0);
+//				ants.drawAll();
+//				Zen.setColor(0, 255, 0);
+//				foods.drawAll();
+//				Zen.setColor(0, 0, 255);
+//				enemyAnts.drawAll();
+//				Zen.setColor(255, 255, 255);
+//				leaderA.drawLeaderAnt(foods, ants);
+				
+			}
+		}
 	}
 	/**@param foods*/
 	public void eat(FoodList foods, AntList ants){
@@ -15,13 +31,15 @@ public class Ant{
 		}
 	}
 	public void move(){
+		if(dead){}
+		else{
 		x=(x>Zen.getZenWidth()?x-Zen.getZenWidth()+20:x);
-		x=(x<Zen.getZenWidth()?x:x);
+		x=(x<0)?Zen.getZenWidth():x;
 		y=(y>Zen.getZenHeight()?y-Zen.getZenHeight()-20:y);
-		y=(y<Zen.getZenHeight()?y:y);
-		if(!dead){
-			int antdirection=(int)(4*Math.random())+1;
-			switch (antdirection){
+		y=(y<0?Zen.getZenHeight():y);
+		{
+			int direction=(int)(4*Math.random())+1;
+			switch (direction){
 			case 1: x++; break;
 			case 2: y++; break;
 			case 3: x--; break;
@@ -29,16 +47,21 @@ public class Ant{
 			default: break;
 			}
 		}
+		}
 	}
 	public void Kill(){
 		dead=true;
+		AntList.deadAnts++;
 	}
 	public void drawAnt(){
+		if(!dead)
 		Zen.fillRect(x, y, 5, 5);
+		
 	}
 	public Ant(){
-		x=0;
-		y=0;
+
+		x=(3*(Zen.getZenWidth()/4));
+		y=(3*(Zen.getZenHeight()/4));
 	}
 	public Ant copyAnotherAnt(){
 		Ant copy = new Ant();

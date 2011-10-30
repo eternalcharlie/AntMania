@@ -1,20 +1,25 @@
 public class AntVsAnt {
-
+//问题是：在运行过一段时间之后，死掉的蚂蚁会重生。
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		boolean end = false;
 		AntList ants = new AntList();
 		ants.create(10);
 		// ------------
 		FoodList foods = new FoodList();
-		foods.dropFood(1000);
+		foods.dropFood(10);
 		// ------------
 		EnemyAntList enemyAnts = new EnemyAntList();
 		enemyAnts.create(10);
 		// --------------
 		LeaderAnt leaderA = new LeaderAnt();
-		while (Zen.isRunning()) {
+		while (Zen.isRunning()&&!end) {
+//			ants.drawAll();
+
+//			ants.clearBattleLand();
+//			enemyAnts.clearBattleLand();
 			Zen.flipBuffer();
 			// initialization of background
 			Zen.setColor(0, 0, 0);
@@ -22,7 +27,7 @@ public class AntVsAnt {
 			// initialization of ants
 			Zen.setColor(255, 0, 0);
 			ants.drawAll();
-			ants.moveAll(foods, ants);
+			ants.moveAll(foods, ants,enemyAnts);
 			// initialization of foods
 			Zen.setColor(0, 255, 0);
 			foods.drawAll();
@@ -36,6 +41,8 @@ public class AntVsAnt {
 			// initialization of Leaders
 			Zen.setColor(255, 255, 255);
 			leaderA.drawLeaderAnt(foods, ants);
+			if (ants.getAnts()==0||enemyAnts.getAnts()==0)
+				end=true;
 			String user = Zen.getEditText();
 			if (user.length() != 0) {
 				char c = Zen.getEditText().charAt(0);
@@ -58,8 +65,10 @@ public class AntVsAnt {
 				Zen.setEditText("");
 			}
 			leaderA.drawLeaderAnt(foods, ants);
-			// ----------------------
-		}
-	}
+//			 ----------------------
 
+	}
+	
+
+}
 }

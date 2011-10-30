@@ -72,7 +72,18 @@ public class Zen extends JApplet {
 	public static final Dimension DEFAULT_SIZE = new Dimension(640, 480);
 	public static final String DEFAULT_OPTIONS = "";
 	protected static final boolean VERBOSE = false;
-
+	public static void initializeScreen(AntList ants, FoodList foods,EnemyAntList enemyAnts, LeaderAnt leaderA){
+		Zen.setColor(0, 0, 0);
+		Zen.fillRect(0, 0, Zen.getZenWidth(), Zen.getZenHeight());
+		Zen.setColor(255, 0, 0);
+		ants.drawAll();
+		Zen.setColor(0, 255, 0);
+		foods.drawAll();
+		Zen.setColor(0, 0, 255);
+		enemyAnts.drawAll();
+		Zen.setColor(255, 255, 255);
+		leaderA.drawLeaderAnt(foods, ants);
+	}
 	public static ZenInstance create(int width, int height, String options) {
 		if (!mustBeAnWebApplet)
 			mustBeAnApplication = true;

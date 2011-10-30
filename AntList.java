@@ -1,6 +1,7 @@
 
 public class AntList {
 private Ant[] data=new Ant[0];
+public static int deadAnts=0;
 /**Once an ant eats a food, an new ant is born at the origin point.
  * */
 public static void born(AntList ants){
@@ -15,10 +16,11 @@ public void create (int count){
 		data[i]=new Ant();
 	}
 }
-public void moveAll(FoodList foods, AntList ants){
+public void moveAll(FoodList foods, AntList ants, EnemyAntList enemyAnts){
 	for (int i=0;i<data.length;i++){
 		data[i].move();
 		data[i].eat(foods, ants);
+		data[i].fight(enemyAnts);
 	}
 }
 public void drawAll(){
@@ -36,6 +38,16 @@ public void addAnt(Ant a){
 	data=temp;
 }
 public int getAnts(){
-	return data.length;
+	return data.length-deadAnts;
+}
+public Ant getAnt(int i){
+	return data[i];
+}
+public void clearBattleLand(){
+	Ant [] temp = new Ant[data.length-deadAnts];
+	for (int i=0;i<data.length-deadAnts;i++){
+		temp[i]=data[data[i].isDead()?i+1:i];
+	}
+	data=temp;
 }
 }
