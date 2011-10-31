@@ -39,6 +39,7 @@ public class EnemyAntList {
 	}
 	public int getAnts(){
 		return data.length-deadAnts;
+//		return data.length;
 	}
 	public EnemyAnt getAnt(int i){
 		return data[i];

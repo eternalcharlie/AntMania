@@ -1,6 +1,4 @@
-public class AntVsAnt {
-//问题是：在运行过一段时间之后，死掉的蚂蚁会重生。
-	/**
+public class AntVsAnt {	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -9,7 +7,7 @@ public class AntVsAnt {
 		ants.create(10);
 		// ------------
 		FoodList foods = new FoodList();
-		foods.dropFood(10);
+		foods.dropFood(20);
 		// ------------
 		EnemyAntList enemyAnts = new EnemyAntList();
 		enemyAnts.create(10);
@@ -48,16 +46,16 @@ public class AntVsAnt {
 				char c = Zen.getEditText().charAt(0);
 				switch (c) {
 				case 'd':
-					leaderA.setX(leaderA.getX( )+1);
+					leaderA.setX(leaderA.getX( )+2);
 					break;
 				case 'a':
-					leaderA.setX(leaderA.getX() - 1);
+					leaderA.setX(leaderA.getX() - 2);
 					break;
 				case 's':
-					leaderA.setY(leaderA.getY() + 1);
+					leaderA.setY(leaderA.getY() + 2);
 					break;
 				case 'w':
-					leaderA.setY(leaderA.getY() - 1);
+					leaderA.setY(leaderA.getY() - 2);
 					break;
 				default:
 					break;

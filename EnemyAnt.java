@@ -9,10 +9,12 @@ public class EnemyAnt{
 	}
 	/**@param foods*/
 	public void eat(FoodList foods, EnemyAntList enemyAnts){
+		if (!dead){
 		for (int i=0;i<foods.getQuantity();i++){
 			if (Math.abs(foods.getFood(i).getX()-x)<2&&Math.abs(foods.getFood(i).getY()-y)<2&&!foods.getFood(i).isEaten()){
 				EnemyAntList.born(enemyAnts);
 				foods.getFood(i).eaten(foods);
+			}
 			}
 		}
 	}
@@ -36,9 +38,11 @@ public class EnemyAnt{
 		}
 	}
 	public void Kill(){
+		if (!dead){
 		dead=true;
 		EnemyAntList.deadAnts++;
-	}
+		}
+		}
 	public void drawAnt(){
 		if(!dead)
 		Zen.fillRect(x, y, 5, 5);
@@ -51,6 +55,7 @@ public class EnemyAnt{
 		EnemyAnt copy = new EnemyAnt();
 		copy.x=x;
 		copy.y=y;
+		copy.dead=dead;
 		return copy;
 	}
 	public void setX(int xx){

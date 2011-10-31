@@ -39,6 +39,7 @@ public void addAnt(Ant a){
 }
 public int getAnts(){
 	return data.length-deadAnts;
+//	return data.length;
 }
 public Ant getAnt(int i){
 	return data[i];

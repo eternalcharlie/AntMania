@@ -18,8 +18,8 @@ public class LeaderAnt extends Ant {
 	
 	public LeaderAnt() {
 		super();
-		w=10;
-		h=10;
+		w=2;
+		h=2;
 		super.setX(2);
 		super.setY(2);
 	}
