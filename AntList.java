@@ -1,4 +1,5 @@
-
+/**What ants can do as a group.
+ * @author weichen7, sichen5*/
 public class AntList {
 private Ant[] data=new Ant[0];
 public static int deadAnts=0;

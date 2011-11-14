@@ -1,4 +1,5 @@
-
+/**Basic properties of FOOD.
+ * @author weichen7, sichen5*/
 public class Food {
 	private int x,y;
 	private boolean eaten=false;

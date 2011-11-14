@@ -69,7 +69,7 @@ import javax.swing.SwingUtilities;
 @SuppressWarnings("serial")
 public class Zen extends JApplet {
 
-	public static final Dimension DEFAULT_SIZE = new Dimension(640, 480);
+	public static final Dimension DEFAULT_SIZE = new Dimension(640,480);
 	public static final String DEFAULT_OPTIONS = "";
 	protected static final boolean VERBOSE = false;
 	public static void initializeScreen(AntList ants, FoodList foods,EnemyAntList enemyAnts, LeaderAnt leaderA){

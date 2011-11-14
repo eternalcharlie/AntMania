@@ -1,4 +1,5 @@
-
+/**What foods can do as a group.
+ * @author weichen7, sichen5*/
 public class FoodList {
 	private Food data[]=new Food[0];
 	public Food getFood(int i){

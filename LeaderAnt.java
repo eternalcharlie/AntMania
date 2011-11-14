@@ -1,3 +1,5 @@
+/**The ant that user can control through ASDW keys
+ * @author weichen7, sichen5*/
 public class LeaderAnt extends Ant {
 	private int w,h;
 	public void move() {

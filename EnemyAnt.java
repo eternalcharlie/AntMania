@@ -1,4 +1,5 @@
-
+/**Basic functionality of enemy ants.
+ * @author weichen7, sichen5*/
 public class EnemyAnt{
 	private int x,y;
 	private boolean dead=false;

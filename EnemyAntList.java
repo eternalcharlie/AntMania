@@ -1,4 +1,5 @@
-
+/**What enemy ants can do as a group.
+ * @author weichen7, sichen5*/
 public class EnemyAntList {
 	private EnemyAnt[] data=new EnemyAnt[0];
 	public static int deadAnts=0;

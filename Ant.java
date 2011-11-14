@@ -1,8 +1,13 @@
+/**Basic functionality of ant.
+ * @author weichen7, sichen5*/
 public class Ant {
 	private int x, y;
 	private boolean dead = false;
 	private boolean lasergun;
-
+/**Every time an ant meets an enemyant, they kills each other. This is achieved by searching through all the enemyants 
+ * and find one in range x<5 and y<5.
+ * @param enemyAnts
+ * */
 	public void fight(EnemyAntList enemyAnts) {
 		if (!dead) {
 			for (int i = 0; i < enemyAnts.getAnts(); i++) {
@@ -16,7 +21,8 @@ public class Ant {
 		}
 	}
 
-	/** @param foods */
+	/** Ever time an ant meets a food
+	 * @param foods */
 	public void eat(FoodList foods, AntList ants) {
 		if (!dead){
 		for (int i = 0; i < foods.getQuantity(); i++) {
